@@ -1,24 +1,12 @@
-import type { Component } from "solid-js";
-
-import logo from "./logo.svg";
-import styles from "./App.module.css";
+import { createSignal, type Component } from "solid-js";
+import { appDataSignal } from "./appData";
 
 const App: Component = () => {
+  const [appData, setAppData] = appDataSignal;
+
   return (
-    <div class={styles.App}>
-      <header class={styles.header}>
-        <p class="bg-red-300">
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
-      </header>
+    <div>
+      <h1 class="text-red-600">이름 : {appData().name}</h1>
     </div>
   );
 };
